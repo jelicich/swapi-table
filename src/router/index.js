@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: `${process.env.BASE_URL}/`,
     name: "home",
     component: HomePage,
     children: [
@@ -22,7 +22,7 @@ const routes = [
   {
     // 404
     path: "*",
-    redirect: "/",
+    redirect: `${process.env.BASE_URL}/`,
   },
 ];
 

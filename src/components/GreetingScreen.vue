@@ -1,6 +1,6 @@
 <template>
   <article class="GreetingScreen">
-    <h1>Star Wors characters database</h1>
+    <h1>Star Wars characters database</h1>
     <p>
       In this table you can find all the characters from Star Wars and some
       information related to them and their home planet.
