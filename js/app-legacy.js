@@ -1117,7 +1117,7 @@ eval("module.exports = __webpack_require__.p + \"img/modal-background.053aef82.p
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	!function() {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		__webpack_require__.p = "/swapi-table/";
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/jsonp chunk loading */
