@@ -1,9 +1,9 @@
 # Star Wars characters database
 In this table you can find all the characters from Star Wars and some information related to them and their home planet.
 
-This project was made using [https://swapi.dev](SWAPI). Sometimes the API takes longer than expected to provide the data, please be patient.
+This project was made using [SWAPI](https://swapi.dev). Sometimes the API takes longer than expected to provide the data, please be patient.
 
-See project running [https://jelicich.github.io/swapi-table/](here).
+See project running [here](https://jelicich.github.io/swapi-table/).
 
 ## Project setup
 ```
