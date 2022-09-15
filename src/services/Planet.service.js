@@ -1,4 +1,7 @@
 import RestService from "@/services/Rest.service";
+import endpointsNames from "@/constants/endpoints";
+
+const { PLANETS } = endpointsNames;
 
 let _map = null;
 let _planets = null;
@@ -11,7 +14,7 @@ const PlanetService = {
    */
   async getAllPlanets() {
     if (!_planets) {
-      _planets = await RestService.getAll("planets");
+      _planets = await RestService.getAll(PLANETS);
     }
     return _planets;
   },

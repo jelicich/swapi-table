@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import Loading from "@/directives/Loading/Loading.directive";
 import router from "./router";
+import store from "@/store";
 import "minireset.css/minireset.min.css";
 import "@/styles/styles.scss";
 
@@ -21,5 +22,6 @@ Object.defineProperty(Vue.prototype, "$errors", {
 
 new Vue({
   router,
+  store,
   render: (h) => h(App),
 }).$mount("#app");

@@ -1,5 +1,8 @@
 import RestService from "@/services/Rest.service";
 import PlanetService from "@/services/Planet.service";
+import endpointsNames from "@/constants/endpoints";
+
+const { PEOPLE } = endpointsNames;
 
 /**
  * Add planet name to the people data.
@@ -16,13 +19,14 @@ async function _mapPeopleData(people) {
 
 const PeopleService = {
   /**
-   * Get all people with planet name included
-   * @returns {Array}
+   * Get people with planet name included
+   * @returns {Object}
    */
-  async getAllPeople() {
-    const people = await RestService.getAll("people");
-    const mappedData = await _mapPeopleData(people);
-    return mappedData;
+
+  async getPeople(params) {
+    const response = await RestService.get(PEOPLE, params);
+    response.data.results = await _mapPeopleData(response.data.results);
+    return response;
   },
 };
 

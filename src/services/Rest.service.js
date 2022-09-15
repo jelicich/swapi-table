@@ -38,30 +38,6 @@ const RestService = {
   },
 
   /**
-   * Get request to the given endpoint, will perform a new request
-   * as long as there are more items to retrieve
-   * @param {string} endpoint
-   * @param {object} params
-   * @returns {Array} request results
-   */
-  async getAll_old(endpoint, params) {
-    let hasNext = true;
-    let page = 1;
-    let results = [];
-    while (hasNext) {
-      const response = await this.get(endpoint, { ...params, page: page });
-      if (response) {
-        results = [...results, ...response.data.results];
-        hasNext = !!response.data.next;
-        page++;
-      } else {
-        hasNext = false;
-      }
-    }
-    return results;
-  },
-
-  /**
    * Get request to the given endpoint, will perform all requests
    * needed to get all the items at once.
    * @param {string} endpoint

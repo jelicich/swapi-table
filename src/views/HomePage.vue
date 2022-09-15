@@ -1,7 +1,7 @@
 <template>
   <div class="HomePage">
     <h1 class="HomePage-title">Welcome to the Star Wars registry of people</h1>
-    <SortableTable :headers="headers" :items="people" v-loading="isLoading">
+    <SortableTable :headers="headers" :items="getPeople" v-loading="isLoading">
       <template v-slot:table-title>
         <BannerText>May the force be with you...</BannerText>
       </template>
@@ -29,10 +29,14 @@
 </template>
 
 <script>
-import PeopleService from "@/services/People.service";
+// import PeopleService from "@/services/People.service";
 import SortableTable from "@/components/SortableTable.vue";
 import ModalWindow from "@/components/ModalWindow.vue";
 import BannerText from "@/components/BannerText.vue";
+import storeConstants from "@/constants/store";
+import { mapActions, mapGetters } from "vuex";
+
+const { MODULES } = storeConstants;
 
 export default {
   name: "HomePage",
@@ -54,7 +58,6 @@ export default {
       isLoading: false,
       isPlanetLoading: false,
       showModal: false,
-      people: [],
       headers: {
         name: "Name",
         height: "Height",
@@ -66,19 +69,28 @@ export default {
     };
   },
 
-  async mounted() {
-    this.loadPeople();
+  async created() {
+    await this.loadPeople();
 
     if (this.$route.params.planet) {
       this.showModal = true;
     }
   },
 
+  computed: {
+    ...mapGetters({
+      getPeople: `${MODULES.PEOPLE_MODULE}/getPeople`,
+    }),
+  },
+
   methods: {
+    ...mapActions({
+      requestAllPeople: `${MODULES.PEOPLE_MODULE}/requestAllPeople`,
+    }),
+
     async loadPeople() {
       this.isLoading = true;
-      const result = await PeopleService.getAllPeople();
-      this.people = result;
+      await this.requestAllPeople();
       this.isLoading = false;
     },
 
