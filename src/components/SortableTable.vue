@@ -98,8 +98,6 @@ export default {
     },
   },
 
-  mounted() {},
-
   methods: {
     toggleSort(column = null, direction = null) {
       this.resetSortButtons(column);

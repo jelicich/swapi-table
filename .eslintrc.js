@@ -21,5 +21,6 @@ module.exports = {
   env: {
     node: true,
     commonjs: "true",
+    "jest/globals": true,
   },
 };
