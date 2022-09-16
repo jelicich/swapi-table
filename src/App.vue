@@ -13,7 +13,7 @@ import GreetingScreen from "@/components/GreetingScreen.vue";
 import ErrorNotification from "@/components/ErrorNotification.vue";
 import CONSTANTS from "@/constants/constants";
 
-const { TEAMWORK_FLAG } = CONSTANTS;
+const { SWAPI_FLAG } = CONSTANTS;
 
 export default {
   name: "App",
@@ -38,14 +38,14 @@ export default {
   },
 
   created() {
-    const isFirstTime = !localStorage.getItem(TEAMWORK_FLAG);
+    const isFirstTime = !localStorage.getItem(SWAPI_FLAG);
     this.showGreeting = isFirstTime;
   },
 
   methods: {
     destroyGreeting() {
       this.showGreeting = false;
-      localStorage.setItem(TEAMWORK_FLAG, JSON.stringify(true));
+      localStorage.setItem(SWAPI_FLAG, JSON.stringify(true));
     },
   },
 };
